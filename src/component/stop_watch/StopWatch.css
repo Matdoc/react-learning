@@ -1,0 +1,30 @@
+.card{
+    background-color: rgb(201, 160, 110);
+    width: 500px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 30px;
+    background: #c5b26e;
+    box-shadow: 15px 15px 30px #dabb88,
+               -15px -15px 30px #a48e50;
+}
+
+
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* button{
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    padding: 5px;
+} */

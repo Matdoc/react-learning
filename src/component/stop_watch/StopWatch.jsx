@@ -1,41 +1,42 @@
-import './StopWatch.css'
+import React, { useState, useEffect } from 'react';
+import './Stopwatch.css';
+const Stopwatch = () => {
+    const [time, setTime] = useState(0); // Time in milliseconds
+    const [isRunning, setIsRunning] = useState(false);
 
-import React , {useState,useRef} from  'react'
+     useEffect(() => {
+      let interval;
+      if(isRunning){
+        interval = setInterval(()=>{
+          setTime((prevTime) => prevTime + 10);
+        } , 10)}
+        else{
+          clearInterval(interval);
+        }
 
-function StopWatch() {
-    // here we are going to impleement the stopwatch 
-    // Functionality 
-         //-> Start and stop with the same button
-         // -> Reset button
-         // -> we can pause and resume using start and stop
+        return () => {
+          clearInterval(interval);
+        };
+      
+     }, [isRunning]);
 
-      //  we will have a state to have a initial time 
-      // we will set the state to check the switch
-      //  we need to set the reference for the start value
-      //  we will set the reference for the intervalId
-   
-    const [time,setTime] = useState(0);
-    const [isChange, setIsChange] = useState(false);
-    const refIntervalId = useRef(null);
-    const reStartTime = useRef(0);
+    const formatTime = (time) => {
+      const milliseconds = Math.floor((time % 1000) / 10);
+      const seconds = Math.floor((time / 1000) % 60);
+      const minutes = Math.floor((time / 1000 / 60) % 60);
+      const hours = Math.floor(time / 1000 / 60 / 60);
+      return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}:${String(milliseconds).padStart(2, '0')}`;
+    };
 
-
-
-  return (
-    <div className='card'>
-        <div> 
-           
-           <h1>Display time : 00:00:00 </h1> 
-            
+    return (
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <h1>Stopwatch</h1>
+            <h2>{formatTime(time)}</h2>
+            <button onClick={() => setIsRunning(true)}>Start</button>
+            <button onClick={() => setIsRunning(false)}>Pause</button>
+            <button onClick={() => { setIsRunning(false); setTime(0); }}>Reset</button>
         </div>
-        <div className='buttonContainer'> 
-            <button className='btn'>Start</button>
-            <button className='btn'>Stop</button>
-            <button className='btn'>reset</button>
-        </div>
-    </div>
-  )
-}
+    );
+};
 
-export default StopWatch
-
+export default Stopwatch;

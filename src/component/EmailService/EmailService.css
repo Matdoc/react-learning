@@ -1,0 +1,72 @@
+/* Centering the email card */
+.email-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  /* Card design */
+  .email-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  /* Form styling */
+  .email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .email-form label {
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .email-form input,
+  .email-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  /* Button styling */
+  .email-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .email-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .email-card {
+      width: 95%;
+      padding: 15px;
+    }
+  
+    .email-form input,
+    .email-form textarea {
+      font-size: 14px;
+    }
+  }
+  
